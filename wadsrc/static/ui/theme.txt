@@ -13,9 +13,9 @@ border #586e75 #bdb8a7
 
 [dark]
 
-main   #002033 #ffffff
-header #001017 #ffffff
-button #003747 #ffffff
-hover  #a4c2e9 #000000
-click  #7ca2e9 #000000
-border #536078 #2b3e5b
+main   #22092a #ffeecc
+header #552a80 #ffffff
+button #442233 #eec011
+hover  #553344 #ffee22
+click  #331122 #ddcc09
+border #ccbb44 #443309
