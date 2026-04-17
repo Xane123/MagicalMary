@@ -73,11 +73,11 @@
 #define SAVEVER 4560
 
 // This is so that derivates can use the same savegame versions without worrying about engine compatibility
-#define GAMESIG "UZDOOM"
+#define GAMESIG "MAGMARY1"
 
 // list of compatible ports, ex.:
 // #define ALLOWLOADIN "PORT1", "PORT2", "PORT3"
-#define ALLOWLOADIN "LZDOOM"
+#define ALLOWLOADIN "LZDOOM", "GZDOOM", "UZDOOM"
 
 #ifndef LOAD_GZDOOM_4142_SAVES
     #define LOAD_GZDOOM_4142_SAVES 1
@@ -85,16 +85,16 @@
 
 #define BASEWAD "uzdoom.pk3"
 // Set OPTIONALWAD to "" (null) to disable searching for it
-#define OPTIONALWAD "game_support.pk3"
+#define OPTIONALWAD ""
 #define GZDOOM 1
 #define VR3D_ENABLED
 
 // More stuff that needs to be different for derivatives.
-#define GAMENAME "UZDoom"
-#define WGAMENAME L"UZDoom"
-#define GAMENAMELOWERCASE "uzdoom"
-#define APPID "org.zdoom.UZDoom"
-#define QUERYIWADDEFAULT true
+#define GAMENAME "Magical Mary"
+#define WGAMENAME L"Magical Mary"
+#define GAMENAMELOWERCASE "magicalmary"
+#define APPID "org.xanem1.MagicalMary"
+#define QUERYIWADDEFAULT false
 #define BUGS_URL "https://github.com/UZDoom/UZDoom/issues"
 // For QUERYIWADDEFAULT: Set to 'true' to always show dialog box on startup by default, 'false' to disable.
 // Should set to 'false' for standalone games, and set to 'true' for regular source port forks that are meant to run any game.

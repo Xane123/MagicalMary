@@ -456,7 +456,6 @@ add_subdirectory( src )
 add_subdirectory( libraries/lzma )
 add_subdirectory( tools )
 add_subdirectory( wadsrc )
-add_subdirectory( wadsrc_extra )
 
 if( ZMUSIC_SYSTEM_INSTALL )
 	# Internal ZMusic library provides miniz target, miniz.h file in partuclar
