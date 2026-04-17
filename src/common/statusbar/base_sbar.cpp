@@ -44,10 +44,10 @@ static int CrosshairNum;
 IMPLEMENT_CLASS(DStatusBarCore, false, false)
 IMPLEMENT_CLASS(DHUDFont, false, false);
 
-CVAR(Color, crosshaircolor,     0xff0000, CVAR_ARCHIVE);
-CVAR(Color, crosshaircolorFull, 0x00ff00, CVAR_ARCHIVE);
-CVAR(Color, crosshaircolorMax,  0x7f7fff, CVAR_ARCHIVE);
-CVAR(Bool, crosshairshowshealth, false, CVAR_HIDDEN);
+CVAR(Color, crosshaircolor,     0xff4491, CVAR_ARCHIVE);
+CVAR(Color, crosshaircolorFull, 0xff80cc, CVAR_ARCHIVE);
+CVAR(Color, crosshaircolorMax,  0xff80cc, CVAR_ARCHIVE);
+CVAR(Bool, crosshairshowshealth, true, CVAR_HIDDEN);
 CVAR(Bool, crosshairhascolor, false, CVAR_HIDDEN);
 CUSTOM_CVARD(Int, crosshaircolors, 2, CVAR_ARCHIVE, "0: basic, 1: show health, 2: show health bonus, 3: inverted")
 {
@@ -60,8 +60,8 @@ CUSTOM_CVARD(Int, crosshaircolors, 2, CVAR_ARCHIVE, "0: basic, 1: show health, 2
 		default: self = 2;
 	}
 };
-CVARD(Float, crosshairscale, 1.0, CVAR_ARCHIVE, "changes the size of the crosshair");
-CVARD(Bool, crosshairgrow, false, CVAR_ARCHIVE, "grow crosshair upon pickup");
+CVARD(Float, crosshairscale, 2.0, CVAR_ARCHIVE, "changes the size of the crosshair");
+CVARD(Bool, crosshairgrow, true, CVAR_ARCHIVE, "grow crosshair upon pickup");
 
 CUSTOM_CVARD(Float, hud_scalefactor, 1.f, CVAR_ARCHIVE, "changes the hud scale")
 {
