@@ -221,7 +221,7 @@ FARG(noblit, "Debug", "Prevents the screen from updating.", "",
 //
 //==========================================================================
 
-CUSTOM_CVAR (Int, displaynametags, 0, CVAR_ARCHIVE)
+CUSTOM_CVAR (Int, displaynametags, 3, CVAR_ARCHIVE)
 {
 	if (self < 0 || self > 3)
 	{

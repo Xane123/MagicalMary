@@ -318,6 +318,10 @@ extend class Actor
 		{
 			mo.bAmbush = bAmbush;
 		}
+		if (flags & SXF_TRANSFERTID)	//[XANE]Manually restored SXF_TRANSFERTID for Magical Mary.
+		{
+			mo.ChangeTid(tid);
+		}
 		if (flags & SXF_CLEARCALLERTID)
 		{
 			self.ChangeTid(0);

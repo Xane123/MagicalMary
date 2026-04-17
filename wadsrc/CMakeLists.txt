@@ -6,7 +6,7 @@ generate_language_files(uzdoom_pk3 static/language.csv ENGINE)
 add_custom_target(
 	copy_metadata
 	COMMAND ${CMAKE_COMMAND} -E copy
-		"${CMAKE_CURRENT_SOURCE_DIR}/../src/posix/freedesktop/org.zdoom.UZDoom.metainfo.xml"
+		"${CMAKE_CURRENT_SOURCE_DIR}/../src/posix/freedesktop/org.xanem1.MagicalMary.metainfo.xml"
 		"${CMAKE_CURRENT_SOURCE_DIR}/static/meta.xml"
 	COMMAND ${CMAKE_COMMAND} -E copy
 		"${CMAKE_CURRENT_SOURCE_DIR}/../CONTRIBUTORS"

@@ -110,10 +110,6 @@ void SetFog(FRenderState &state, FLevelLocals* Level, ELightMode lightmode, int 
 		fogdensity = 0;
 	}
 
-	// Make fog a little denser when inside a skybox
-	if (portalState.inskybox) fogdensity += fogdensity / 2;
-
-
 	// no fog in enhanced vision modes!
 	if (fogdensity == 0 || gl_fogmode == 0)
 	{

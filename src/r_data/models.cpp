@@ -757,6 +757,9 @@ void InitModels()
 			}
 			SpriteModelFrames.Push(smf);
 		}
+
+		smf.flags |= MDL_USEACTORPITCH |
+		             MDL_USEACTORROLL; //[XANE]Brute-force these flags on for voxel models. (SOMEHOW THIS WORKS!)
 	}
 
 	int Lump;

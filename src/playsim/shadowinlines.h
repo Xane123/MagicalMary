@@ -166,7 +166,7 @@ inline void A_Face_ShadowHandling(AActor* self, AActor* other, DAngle max_turn, 
 		// This will never work well if the turn angle is limited.
 		if (max_turn == nullAngle && (self->Angles.Yaw == other_angle) && PerformShadowChecks(self, other, self->PosAtZ(self->Center()), penaltyFactor))
 		{
-			self->Angles.Yaw += DAngle::fromDeg(pr_facetarget.Random2() * (45 / 256.)) * self->ShadowAimFactor * penaltyFactor;
+			self->Angles.Yaw += DAngle::fromDeg(pr_facetarget.Random2() * (13 / 256.)) * self->ShadowAimFactor * penaltyFactor;
 		}
 	}
 	else
@@ -174,7 +174,7 @@ inline void A_Face_ShadowHandling(AActor* self, AActor* other, DAngle max_turn, 
 		//Randomly offset the pitch when looking at shadows.
 		if (self->flags9 & MF9_SHADOWAIMVERT && max_turn == nullAngle && (self->Angles.Pitch == other_angle) && PerformShadowChecks(self, other, self->PosAtZ(self->Center()), penaltyFactor))
 		{
-			self->Angles.Pitch += DAngle::fromDeg(pr_facetarget.Random2() * (45 / 256.)) * self->ShadowAimFactor * penaltyFactor;
+			self->Angles.Pitch += DAngle::fromDeg(pr_facetarget.Random2() * (13 / 256.)) * self->ShadowAimFactor * penaltyFactor;
 		}
 	}
 	return;

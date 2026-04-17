@@ -1311,17 +1311,18 @@ bool isTargetablePlayer(AActor *actor, player_t *player, INTBOOL allaround, void
 
 	// [RC] Well, let's let special monsters with this flag active be able to see
 	// the player then, eh?
+	// [XANE] For Magical Mary, enemies are way more oblivious to "ninjas".
 	if (!(actor->flags6 & MF6_SEEINVISIBLE))
 	{
 		if ((player->mo->flags & MF_SHADOW && !(actor->Level->i_compatflags & COMPATF_INVISIBILITY)) ||
 			player->mo->flags3 & MF3_GHOST)
 		{
-			if (player->mo->Distance2D(actor) > 128 && player->mo->Vel.XY().LengthSquared() < 5 * 5)
-			{ // Player is sneaking - can't detect
+			if (player->mo->Distance2D(actor) > 42 && player->mo->Vel.XY().LengthSquared() < 150)
+			{ // Player is sneaking or walking - can't detect!
 				return false;
 			}
-			if (pr_lookforplayers() < 225)
-			{ // Player isn't sneaking, but still didn't detect
+			if (pr_lookforplayers() < 144)
+			{ // Player isn't "sneaking", but this enemy still didn't detect them!
 				return false;
 			}
 		}

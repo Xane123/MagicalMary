@@ -132,8 +132,8 @@ CUSTOM_CVAR (Float, sv_gravity, 800.f, CVAR_SERVERINFO|CVAR_NOSAVE|CVAR_NOINITCA
 
 CVAR (Bool, cl_missiledecals, true, CVAR_ARCHIVE)
 CVAR (Bool, addrocketexplosion, true, CVAR_ARCHIVE)
-CVAR (Int, cl_pufftype, 0, CVAR_ARCHIVE);
-CVAR (Int, cl_bloodtype, 0, CVAR_ARCHIVE);
+CVAR (Int, cl_pufftype, 1, CVAR_ARCHIVE);
+CVAR (Int, cl_bloodtype, 2, CVAR_ARCHIVE);
 
 // CODE --------------------------------------------------------------------
 
@@ -2977,9 +2977,9 @@ static void P_ZMovement (AActor *mo, double oldfloorz)
 		{
 			dist = mo->Distance2D (mo->target);
 			delta = (mo->target->Center()) - mo->Z();
-			if (delta < 0 && dist < -(delta*3))
+			if (delta < 0 /*&& dist < -(delta*3)*/)
 				mo->AddZ(-mo->FloatSpeed);
-			else if (delta > 0 && dist < (delta*3))
+			else if (delta > 0 /*&& dist < (delta*3)*/)
 				mo->AddZ(mo->FloatSpeed);
 		}
 	}

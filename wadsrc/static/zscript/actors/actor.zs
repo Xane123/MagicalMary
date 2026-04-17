@@ -1766,15 +1766,17 @@ class Actor : Thinker native
 			}
 			bool isliquid = (pos.Z <= floorz) && GetFloorTerrain().IsLiquid;
 			if (onmobj != NULL || !isliquid)
-			{
-				if (!grunted)
-				{
-					A_StartSound("*land", CHAN_AUTO, CHANF_NORUMBLE);
-				}
-				else
-				{
-					A_StartSoundIfNotSame("*land", "*grunt", CHAN_AUTO, CHANF_NORUMBLE);
-				}
+			{	//[XANE] Don't "grunt" when landing; Mary's landing sounds are contorlled by an ol' ACS script.
+				/*
+					if (!grunted)
+					{
+						A_StartSound("*land", CHAN_AUTO, CHANF_NORUMBLE);
+					}
+					else
+					{
+						A_StartSoundIfNotSame("*land", "*grunt", CHAN_AUTO, CHANF_NORUMBLE);
+					}
+				*/
 			}
 		}
 	}

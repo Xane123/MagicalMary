@@ -82,16 +82,16 @@ struct InterpolationViewer
 // PRIVATE DATA DECLARATIONS -----------------------------------------------
 static TArray<InterpolationViewer> PastViewers;
 static FCRandom pr_torchflicker ("TorchFlicker");
-static FCRandom pr_hom;
+//static FCRandom pr_hom;	//How to make a random variable in GZDoom's source code.
 bool NoInterpolateView;	// GL needs access to this.
 static TArray<DVector3a> InterpolationPath;
 
 // PUBLIC DATA DEFINITIONS -------------------------------------------------
 
-CVAR (Bool, r_deathcamera, false, CVAR_ARCHIVE)
-CVAR (Int, r_clearbuffer, 0, 0)
-CVAR (Bool, r_drawvoxels, true, 0)
-CVAR (Bool, r_drawplayersprites, true, 0)	// [RH] Draw player sprites?
+CVAR (Bool, r_deathcamera, true, CVAR_ARCHIVE)
+CVAR (Int, r_clearbuffer, 242, CVAR_ARCHIVE)
+CVAR (Bool, r_drawvoxels, true, CVAR_ARCHIVE)
+CVAR (Bool, r_drawplayersprites, true, CVAR_ARCHIVE)	// [RH] Draw player sprites?
 CVARD (Bool, r_radarclipper, false, CVAR_ARCHIVE | CVAR_SERVERINFO | CVAR_CHEAT, "Use the horizontal clipper from camera->tracer's perspective")
 CVARD (Bool, r_dithertransparency, false, CVAR_ARCHIVE | CVAR_SERVERINFO | CVAR_CHEAT, "Use dithered-transparency shading for actor-occluding level geometry")
 CUSTOM_CVAR(Float, r_quakeintensity, 1.0f, CVAR_ARCHIVE | CVAR_GLOBALCONFIG)
@@ -1210,18 +1210,8 @@ void R_SetupFrame(FRenderViewpoint& viewPoint, const FViewWindow& viewWindow, AA
 
 	if (r_clearbuffer != 0)
 	{
-		int color = 0;
 		int hom = r_clearbuffer;
-		if (hom == 3)
-			hom = ((screen->FrameTime / 128) & 1) + 1;
-		if (hom == 1)
-			color = GPalette.BlackIndex;
-		else if (hom == 2)
-			color = GPalette.WhiteIndex;
-		else if (hom == 4)
-			color = (screen->FrameTime / 32) & 255;
-		else
-			color = pr_hom();
+		int color = (hom - 1) % 256;
 
 		screen->SetClearColor(color);
 		SWRenderer->SetClearColor(color);
@@ -1248,7 +1238,7 @@ void R_SetupFrame(FRenderViewpoint& viewPoint, const FViewWindow& viewWindow, AA
 	viewPoint.ViewActor = viewPoint.showviewer ? nullptr : actor;
 }
 
-CUSTOM_CVAR(Float, maxviewpitch, 90.f, CVAR_ARCHIVE | CVAR_SERVERINFO)
+CUSTOM_CVAR(Float, maxviewpitch, 75.f, CVAR_ARCHIVE | CVAR_SERVERINFO)
 {
 	if (self>90.f) self = 90.f;
 	else if (self<-90.f) self = -90.f;

@@ -206,13 +206,13 @@ public:
 
 		if (err != Z_OK && err != Z_STREAM_END)
 		{
-			DecompressionError ("Corrupt zlib stream");
+			DecompressionError ("The game's files were modified while it's running! Please restart the game now.");
 			return 0;
 		}
 
 		if (Stream.avail_out != 0)
 		{
-			DecompressionError ("Ran out of data in zlib stream");
+			DecompressionError ("You somehow ran out of the compression stream.");
 			return 0;
 		}
 

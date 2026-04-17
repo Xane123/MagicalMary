@@ -341,7 +341,7 @@ void SetDefaultColormap (const char *name)
 		// [RH] If using BUILD's palette, generate the colormap
 		if (lump == -1 || fileSystem.CheckNumForFullName("palette.dat") >= 0 || fileSystem.CheckNumForFullName("blood.pal") >= 0)
 		{
-			DPrintf (DMSG_NOTIFY, "Make colormap\n");
+			//DPrintf (DMSG_NOTIFY, "Make colormap\n");
 			FDynamicColormap foo;
 
 			foo.Color = 0xFFFFFF;

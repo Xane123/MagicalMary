@@ -584,6 +584,8 @@ public:
 	int			clusterflags;
 	int			levelnum;
 	int			lumpnum;
+	int			partnum;
+	int			songid;
 	FString		LevelName;
 	FString		MapName;			// the lump name (E1M1, MAP01, etc)
 	FString		NextMap;			// go here when using the regular exit

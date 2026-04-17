@@ -147,6 +147,7 @@ enum ESpawnItemFlags
 	SXF_ISTARGET				=	1 << 26,
 	SXF_ISMASTER				=	1 << 27,
 	SXF_ISTRACER				=	1 << 28,
+	SXF_TRANSFERTID				=	1 << 29,	//[XANE]Manually restored SXF_TRANSFERTID for Magical Mary.
 };
 
 // Flags for A_Chase
