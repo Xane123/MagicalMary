@@ -1,0 +1,27 @@
+[Desktop Entry]
+Name=Magical Mary
+Comment=An action-packed 3D platforming game.
+Icon=org.xanem1.MagicalMary
+Categories=Game;Shooter;
+Exec=magicalmary %F
+StartupNotify=true
+PrefersNonDefaultGPU=true
+Terminal=false
+Type=Application
+Keywords=first;person;shooter;platformer;
+Actions=launch-safemode;launch-mm-dev;launch-mm-release;
+
+[Desktop Action launch-safemode]
+Name=Start in Safe Mode
+Icon=org.xanem1.MagicalMary
+Exec=magicalmary -noautoload -noautoexec %F
+
+[Desktop Action launch-mm-dev]
+Name=Play Magical Mary (development)
+Icon=org.xanem1.MagicalMary
+Exec=magicalmary -iwad BaseGamePack1.ipk3 %F
+
+[Desktop Action launch-mm-release]
+Name=Play Magical Mary (release)
+Icon=org.xanem1.MagicalMary
+Exec=magicalmary -iwad BaseGamePack.ipk7 %F
