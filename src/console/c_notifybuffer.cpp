@@ -48,7 +48,7 @@ EXTERN_CVAR(Bool, show_messages)
 EXTERN_CVAR(Bool, con_stackident)
 extern bool generic_ui;
 CVAR(Float, con_notifytime, 3.f, CVAR_ARCHIVE)
-CVAR(Bool, con_centernotify, false, CVAR_ARCHIVE)
+CVAR(Bool, con_centernotify, true, CVAR_ARCHIVE)
 CVAR(Bool, con_pulsetext, false, CVAR_ARCHIVE)
 
 CUSTOM_CVAR(Int, con_scaletext, 0, CVAR_ARCHIVE)		// Scale notify text at high resolutions?
@@ -160,7 +160,7 @@ void FNotifyBuffer::Draw()
 			double alpha = (j < NOTIFYFADETIME) ? 1. * j / NOTIFYFADETIME : 1;
 			if (con_pulsetext)
 			{
-				alpha *= 0.7 + 0.3 * sin(I_msTime() / 100.);
+				alpha *= 0.75 + 0.175 * sin(I_msTime() / 150.);
 			}
 
 			if (notify.PrintLevel >= PRINTLEVELS)

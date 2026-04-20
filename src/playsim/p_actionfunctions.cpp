@@ -774,7 +774,7 @@ DEFINE_ACTION_FUNCTION(AActor, A_BulletAttack)
 		
 	if (!self->target) return 0;
 
-	A_FaceTarget (self);
+	//A_FaceTarget (self);
 
 	DAngle slope = P_AimLineAttack (self, self->Angles.Yaw, MISSILERANGE);
 
@@ -1059,7 +1059,7 @@ DEFINE_ACTION_FUNCTION(AActor, A_CustomMeleeAttack)
 	if (!self->target)
 		return 0;
 				
-	A_FaceTarget (self);
+	//A_FaceTarget (self);
 	if (P_CheckMeleeRange(self))
 	{
 		if (meleesound.isvalid())
@@ -1094,7 +1094,7 @@ DEFINE_ACTION_FUNCTION(AActor, A_CustomComboAttack)
 	if (!self->target)
 		return 0;
 				
-	A_FaceTarget (self);
+	//A_FaceTarget (self);
 	if (P_CheckMeleeRange(self))
 	{
 		if (damagetype == NAME_None)
@@ -2816,7 +2816,7 @@ DEFINE_ACTION_FUNCTION(AActor, A_MonsterRefire)
 	PARAM_INT	(prob);
 	PARAM_STATE	(jump);
 
-	A_FaceTarget(self);
+	//A_FaceTarget(self);
 
 	if (pr_monsterrefire() < prob)
 	{

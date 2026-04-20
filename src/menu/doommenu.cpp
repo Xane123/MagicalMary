@@ -871,8 +871,10 @@ static void BuildPlayerclassMenu()
 			if (numclassitems <= 1)
 			{
 				// create a dummy item that auto-chooses the default class.
+				// [XANE]Use "CR_PURPLE,CR_CREAM" instead of the hardcoded colors here once it's known what is coating
+				// everything in RED!
 				auto it = CreateListMenuItemText(0, 0, 0, 'p', "player", 
-					ld->mFont,ld->mFontColor, ld->mFontColor2, NAME_EpisodeMenu, -1000);
+					ld->mFont, CR_PURPLE, CR_CREAM, NAME_EpisodeMenu, -1000);
 				ld->mAutoselect = ld->mItems.Push(it);
 				success = true;
 			}
@@ -898,7 +900,7 @@ static void BuildPlayerclassMenu()
 						if (pname != nullptr)
 						{
 							auto it = CreateListMenuItemText(ld->mXpos, ld->mYpos, ld->mLinespacing, *pname,
-								pname, ld->mFont,ld->mFontColor,ld->mFontColor2, NAME_EpisodeMenu, i);
+								pname, ld->mFont,CR_PURPLE,CR_CREAM, NAME_EpisodeMenu, i);
 							ld->mItems.Push(it);
 							ld->mYpos += ld->mLinespacing;
 							n++;
@@ -908,7 +910,7 @@ static void BuildPlayerclassMenu()
 				if (n > 1 && !gameinfo.norandomplayerclass)
 				{
 					auto it = CreateListMenuItemText(ld->mXpos, ld->mYpos, ld->mLinespacing, 'r',
-						"$MNU_RANDOM", ld->mFont,ld->mFontColor,ld->mFontColor2, NAME_EpisodeMenu, -1);
+						"$MNU_RANDOM", ld->mFont,CR_PURPLE,CR_CREAM, NAME_EpisodeMenu, -1);
 					ld->mItems.Push(it);
 				}
 				if (n == 0)
@@ -917,7 +919,7 @@ static void BuildPlayerclassMenu()
 					if (pname != nullptr)
 					{
 						auto it = CreateListMenuItemText(ld->mXpos, ld->mYpos, ld->mLinespacing, *pname,
-							pname, ld->mFont,ld->mFontColor,ld->mFontColor2, NAME_EpisodeMenu, 0);
+							pname, ld->mFont,CR_PURPLE,CR_CREAM, NAME_EpisodeMenu, 0);
 						ld->mItems.Push(it);
 					}
 				}

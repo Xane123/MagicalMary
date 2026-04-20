@@ -142,7 +142,7 @@ ADD_STAT(lightstats)
 static int printstats;
 static bool switchfps;
 static uint64_t waitstart;
-EXTERN_CVAR(Bool, vid_fps)
+EXTERN_CVAR(Int, vid_fps)
 
 void CheckBench()
 {

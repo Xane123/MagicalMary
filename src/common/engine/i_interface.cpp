@@ -49,7 +49,7 @@ bool			pauseext;
 
 FStartupInfo GameStartupInfo;
 
-CVAR(Bool, vid_fps, false, 0)
+CVAR(Int, vid_fps, 0, CVAR_ARCHIVE)
 CVAR(Bool, queryiwad, QUERYIWADDEFAULT, CVAR_ARCHIVE | CVAR_GLOBALCONFIG)
 CVAR(Bool, saveargs, true, CVAR_ARCHIVE | CVAR_GLOBALCONFIG)
 CVAR(Bool, savenetfile, false, CVAR_ARCHIVE | CVAR_GLOBALCONFIG)

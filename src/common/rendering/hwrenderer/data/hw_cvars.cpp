@@ -37,8 +37,8 @@ CUSTOM_CVAR(Int, gl_fogmode, 2, CVAR_ARCHIVE | CVAR_NOINITCALL)
 
 // OpenGL stuff moved here
 // GL related CVARs
-CVAR(Bool, gl_portals, true, 0)
-CVAR(Bool,gl_mirrors,true,0)	// This is for debugging only!
+CVAR(Bool, gl_portals, true, CVAR_ARCHIVE)
+CVAR(Bool,gl_mirrors,true, CVAR_ARCHIVE)	// This is for debugging only!
 CVAR(Bool,gl_mirror_envmap, true, CVAR_GLOBALCONFIG|CVAR_ARCHIVE)
 CVAR(Bool, gl_seamless, true, CVAR_ARCHIVE|CVAR_GLOBALCONFIG)
 
@@ -49,10 +49,13 @@ CUSTOM_CVAR(Int, r_portal_recursions, 4, CVAR_ARCHIVE)
 }
 
 bool gl_plane_reflection_i;	// This is needed in a header that cannot include the CVAR stuff...
-CUSTOM_CVAR(Bool, gl_plane_reflection, true, CVAR_GLOBALCONFIG|CVAR_ARCHIVE)
+CUSTOM_CVAR(Bool, gl_plane_reflection, true, CVAR_GLOBALCONFIG | CVAR_ARCHIVE,
+            "Allows proper floor/ceiling reflections. (Doesn't affect 3D floors due to limitations.)")
 {
 	gl_plane_reflection_i = self;
 }
+CVARD(Bool, gl_materials, true, CVAR_ARCHIVE,
+      "If set, shiny surfaces that reflect dynamic lights are enabled. Requires a game restart to take effect.")
 
 constexpr float GAMMA_DEFAULT = 2.2;
 constexpr float GAMMA_HIGH = 3.0;
@@ -124,7 +127,7 @@ CVAR(Int, gl_satformula, 2, CVAR_ARCHIVE|CVAR_GLOBALCONFIG);
 // Texture CVARs
 //
 //==========================================================================
-CUSTOM_CVARD(Float, gl_texture_filter_anisotropic, 16.f, CVAR_ARCHIVE | CVAR_GLOBALCONFIG | CVAR_NOINITCALL, "changes the OpenGL texture anisotropy setting")
+CUSTOM_CVARD(Float, gl_texture_filter_anisotropic, 4.f, CVAR_ARCHIVE | CVAR_GLOBALCONFIG | CVAR_NOINITCALL, "changes the OpenGL texture anisotropy setting")
 {
 	screen->SetTextureFilterMode();
 }

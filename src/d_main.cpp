@@ -393,7 +393,7 @@ EXTERN_CVAR (Bool, sv_unlimited_pickup)
 EXTERN_CVAR (Bool, r_drawplayersprites)
 EXTERN_CVAR (Bool, show_messages)
 EXTERN_CVAR(Bool, ticker)
-EXTERN_CVAR(Bool, vid_fps)
+EXTERN_CVAR(Int, vid_fps)
 EXTERN_CVAR(Bool, haptics_do_menus)
 
 extern bool setmodeneeded;
@@ -466,7 +466,7 @@ CUSTOM_CVAR (Int, fraglimit, 0, CVAR_SERVERINFO)
 }
 
 CVAR (Float, timelimit, 0.f, CVAR_SERVERINFO);
-CUSTOM_CVAR (Int, wipetype, 1, CVAR_ARCHIVE)
+CUSTOM_CVAR (Int, wipetype, 0, CVAR_ARCHIVE)
 {
 	if (self < wipe_None || self >= wipe_NUMWIPES) self = wipe_Melt;
 }
@@ -1042,10 +1042,17 @@ static void DrawRateStuff()
 		int rate_x;
 		int textScale = active_con_scale(twod);
 
-		chars = mysnprintf(fpsbuff, countof(fpsbuff), "%2llu ms (%3llu fps)", (unsigned long long)LastMSCount, (unsigned long long)LastFPS);
+		if (vid_fps == 1)
+			chars = mysnprintf(fpsbuff, countof(fpsbuff), "%3lluFPS", (unsigned long long)LastFPS);
+		else
+			chars = mysnprintf(fpsbuff, countof(fpsbuff), "%3lluFPS (%2llums)", (unsigned long long)LastFPS,
+			                   (unsigned long long)LastMSCount);
 		rate_x = screen->GetWidth() / textScale - NewConsoleFont->StringWidth(&fpsbuff[0]);
 		ClearRect(twod, rate_x * textScale, 0, screen->GetWidth(), NewConsoleFont->GetHeight() * textScale, GPalette.BlackIndex, 0);
-		DrawText(twod, NewConsoleFont, CR_WHITE, rate_x, 0, (char*)&fpsbuff[0],
+		// [XANE] Draw the background color.
+		for (int i = 2; i < 16; i += 2)
+			Dim(twod, 50, 0.15, 0, -4 * textScale, twod->GetWidth(), (NewConsoleFont->GetHeight() + i) * textScale);
+		DrawText(twod, NewConsoleFont, (unsigned long long)LastFPS > 30 ? CR_YELLOW : CR_GREEN, 2 * textScale, 2 * textScale, (char*)&fpsbuff[0],
 			DTA_VirtualWidth, screen->GetWidth() / textScale,
 			DTA_VirtualHeight, screen->GetHeight() / textScale,
 			DTA_KeepRatio, true, TAG_DONE);

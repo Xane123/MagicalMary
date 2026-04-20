@@ -62,7 +62,7 @@ std::pair<PalEntry, PalEntry>& R_GetSkyCapColor(FGameTexture* tex)
 
 	FBitmap bitmap = itex->GetBgraBitmap(nullptr);
 	int w = bitmap.GetWidth();
-	int h = bitmap.GetHeight();
+	int h = 1;	//bitmap.GetHeight();
 
 	const uint32_t* buffer = (const uint32_t*)bitmap.GetPixels();
 	if (buffer)
@@ -128,7 +128,7 @@ void FSkyVertexBuffer::SkyVertexDoom(int r, int c, bool zflip)
 
 	FSkyVertex vert;
 
-	vert.color = r == 0 ? 0xffffff : 0xffffffff;
+	vert.color = 0xffffffff; //[XANE] The fade near the sky caps is GONE!
 
 	// And the texture coordinates.
 	if (!zflip)	// Flipped Y is for the lower hemisphere.
@@ -168,7 +168,7 @@ void FSkyVertexBuffer::SkyVertexBuild(int r, int c, bool zflip)
 
 	FSkyVertex vert;
 
-	vert.color = r == 0 ? 0xffffff : 0xffffffff;
+	vert.color = 0xffffffff; //[XANE] The fade near the sky caps is GONE!
 
 	// And the texture coordinates.
 	if (zflip) r = mRows * 2 - r;

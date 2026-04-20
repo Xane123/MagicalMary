@@ -25,6 +25,7 @@
 #include "v_video.h"
 
 
+EXTERN_CVAR(Bool, gl_materials)
 CVAR(Bool, gl_customshader, true, 0);
 
 
@@ -80,7 +81,7 @@ FMaterial::FMaterial(FGameTexture * tx, int scaleflags)
 			{
 				mTextureLayers.Push({ texture, 0, -1 });
 			}
-			mShaderIndex = SHADER_Specular;
+			mShaderIndex = gl_materials ? SHADER_Specular : SHADER_Default;
 		}
 		else if (tx->Layers && tx->Layers->Normal.get() && tx->Layers->Metallic.get() && tx->Layers->Roughness.get() && tx->Layers->AmbientOcclusion.get())
 		{
