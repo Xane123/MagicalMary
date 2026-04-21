@@ -49,7 +49,7 @@ CUSTOM_CVAR(Int, r_portal_recursions, 4, CVAR_ARCHIVE)
 }
 
 bool gl_plane_reflection_i;	// This is needed in a header that cannot include the CVAR stuff...
-CUSTOM_CVAR(Bool, gl_plane_reflection, true, CVAR_GLOBALCONFIG | CVAR_ARCHIVE,
+CUSTOM_CVARD(Bool, gl_plane_reflection, true, CVAR_GLOBALCONFIG | CVAR_ARCHIVE,
             "Allows proper floor/ceiling reflections. (Doesn't affect 3D floors due to limitations.)")
 {
 	gl_plane_reflection_i = self;
